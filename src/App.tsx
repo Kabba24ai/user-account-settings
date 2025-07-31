@@ -209,11 +209,6 @@ function App() {
                 >
                   Package Demo
                 </button>
-                  onClick={() => setCurrentView('package_demo')}
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                >
-                  Package Demo
-                </button>
                 <button
                   onClick={handleAddRole}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
