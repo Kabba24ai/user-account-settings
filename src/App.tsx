@@ -204,7 +204,6 @@ function App() {
                   Back to Employees
                 </button>
                 <button
-                <button
                   onClick={() => setCurrentView('package_demo')}
                   className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
                 >
