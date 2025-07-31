@@ -5,6 +5,7 @@ import { EmployeeDetails } from './components/EmployeeDetails';
 import { RoleForm } from './components/RoleForm';
 import { RoleCard } from './components/RoleCard';
 import { UserCard } from './components/UserCard';
+import { PackageIconExample } from './components/PackageIconExample';
 import { User, Role } from './types/user';
 import { Permission } from './types/permission';
 import { mockUsers, mockRoles } from './data/mockData';
@@ -16,7 +17,7 @@ function App() {
   const [permissions] = useState<Permission[]>(mockPermissions);
   const [selectedUser, setSelectedUser] = useState<User | undefined>(undefined);
   const [selectedRole, setSelectedRole] = useState<Role | undefined>(undefined);
-  const [currentView, setCurrentView] = useState<'list' | 'add' | 'edit' | 'view' | 'roles' | 'add_role' | 'edit_role'>('list');
+  const [currentView, setCurrentView] = useState<'list' | 'add' | 'edit' | 'view' | 'roles' | 'add_role' | 'edit_role' | 'package_demo'>('list');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
   const [roleFilter, setRoleFilter] = useState<string>('all');
@@ -139,6 +140,11 @@ function App() {
     return users.filter(user => user.roles.includes(roleId)).length;
   };
 
+  // Show package icon demo
+  if (currentView === 'package_demo') {
+    return <PackageIconExample />;
+  }
+
   // Show employee details view
   if (currentView === 'view' && selectedUser) {
     return (
@@ -196,6 +202,18 @@ function App() {
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                 >
                   Back to Employees
+                </button>
+                <button
+                <button
+                  onClick={() => setCurrentView('package_demo')}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+                >
+                  Package Demo
+                </button>
+                  onClick={() => setCurrentView('package_demo')}
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                >
+                  Package Demo
                 </button>
                 <button
                   onClick={handleAddRole}
